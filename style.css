@@ -1,0 +1,350 @@
+/* 2000年代復古科技感黑底霓虹風格樣式表 */
+body {
+    background-color: #1a252f;
+    color: #dcdde1;
+    font-family: "新細明體", "PMingLiU", "Courier New", serif;
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    width: 960px;
+    margin: 0 auto;
+    background-color: #0b131a;
+    border-left: 3px double #00ffcc;
+    border-right: 3px double #00ffcc;
+    box-shadow: 0px 0px 20px #00ffcc;
+}
+
+/* Header 樣式 */
+header {
+    background: linear-gradient(180deg, #005f73 0%, #0a192f 100%);
+    padding: 20px;
+    border-bottom: 2px solid #00ffcc;
+    text-align: center;
+}
+
+.logo-area h1 {
+    color: #00ffcc;
+    font-size: 38px;
+    margin: 0;
+    text-shadow: 2px 2px #000;
+    letter-spacing: 2px;
+}
+
+.logo-area p {
+    color: #88eeff;
+    margin: 5px 0 15px 0;
+    font-size: 12px;
+    font-style: italic;
+}
+
+/* 導覽列 */
+nav {
+    background-color: #112233;
+    border: 1px solid #00ffcc;
+    padding: 8px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li a {
+    color: #00ffcc;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 5px 15px;
+    border: 1px transparent solid;
+}
+
+nav ul li a:hover {
+    background-color: #00ffcc;
+    color: #000;
+    border: 1px solid #fff;
+    box-shadow: 0 0 5px #00ffcc;
+}
+
+/* 跑馬燈 */
+.marquee-speed {
+    background-color: #220000;
+    color: #ff3333;
+    padding: 4px;
+    border-bottom: 1px solid #00ffcc;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* 互動頁面切換控制核心：預設隱藏，有 .active 才顯示 */
+.sub-page {
+    display: none;
+}
+
+.sub-page.active {
+    display: block;
+}
+
+/* 主內容版面配置 (首頁專用) */
+.main-wrapper {
+    display: flex;
+    padding: 20px;
+}
+
+aside {
+    width: 250px;
+    padding-right: 20px;
+    border-right: 1px dashed #00ffcc;
+}
+
+main {
+    flex: 1;
+    padding-left: 20px;
+}
+
+/* 區塊標題外框 */
+.section-title-bar {
+    border-bottom: 2px solid #005f73;
+    margin-bottom: 15px;
+}
+
+.section-title-bar h2 {
+    color: #00ffcc;
+    margin: 0 0 5px 0;
+}
+
+/* 側邊欄小方塊 */
+.box {
+    border: 1px solid #005f73;
+    background-color: #0d1f2d;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.box h3 {
+    margin-top: 0;
+    background-color: #005f73;
+    color: #fff;
+    padding: 5px;
+    font-size: 14px;
+    border-left: 5px solid #00ffcc;
+}
+
+.contact-text {
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.contact-text a {
+    color: #00ffcc;
+}
+
+/* 新聞卡片 */
+.news-card {
+    border: 1px solid #00ffcc;
+    background-color: #112233;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.news-title {
+    color: #ffff00;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.news-title:hover {
+    color: #ff00ff;
+}
+
+.news-meta {
+    font-size: 12px;
+    color: #aaa;
+    margin: 5px 0 10px 0;
+}
+
+.news-p {
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.read-more {
+    color: #00ffcc;
+    cursor: pointer;
+}
+
+.old-news {
+    font-size: 13px;
+    color: #888;
+}
+
+/* 閃爍動畫效果 */
+.blink {
+    animation: blinker 1s linear infinite;
+    color: #ff0000;
+    font-weight: bold;
+}
+
+@keyframes blinker {
+    50% { opacity: 0; }
+}
+
+/* ========================================== */
+/* 新增：獨立子網頁專用樣式區                  */
+/* ========================================== */
+.page-padding {
+    padding: 30px;
+}
+
+/* 產品大型卡片 */
+.product-large-card {
+    border: 1px dashed #00ffcc;
+    background-color: #112233;
+    margin-bottom: 25px;
+}
+
+.prod-header {
+    background-color: #005f73;
+    color: #fff;
+    padding: 8px 12px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.prod-body {
+    padding: 15px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* 團隊介紹表格 (2000年代最愛用的雙線細邊框風格) */
+.team-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #112233;
+}
+
+.team-table th, .team-table td {
+    border: 1px solid #005f73;
+    padding: 12px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.team-table th {
+    background-color: #005f73;
+    color: #00ffcc;
+}
+
+.job-title {
+    font-weight: bold;
+    color: #ffff00;
+}
+
+.member-name {
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* 復古風按鈕 */
+.retro-btn {
+    background-color: #112233;
+    color: #00ffcc;
+    border: 1px solid #00ffcc;
+    padding: 6px 15px;
+    cursor: pointer;
+    font-family: "新細明體";
+}
+
+.retro-btn:hover {
+    background-color: #00ffcc;
+    color: #000;
+}
+
+/* ========================================== */
+/* 醫學文獻頁面樣式 (白底仿紙張印刷)            */
+/* ========================================== */
+#journal-page {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: "Times New Roman", "SimSun", serif;
+    padding: 30px;
+    border: 5px solid #333;
+}
+
+.journal-header {
+    border-bottom: 3px double #000;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.journal-brand {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #555;
+}
+
+.journal-title {
+    font-size: 26px;
+    font-weight: bold;
+    color: #800000;
+}
+
+.journal-meta {
+    font-size: 12px;
+    color: #444;
+    margin-top: 5px;
+}
+
+.journal-content {
+    line-height: 1.7;
+    font-size: 15px;
+    text-align: justify;
+}
+
+.journal-content hr {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin-top: 30px;
+}
+
+.journal-disclaimer {
+    font-size: 12px;
+    color: #666;
+    font-style: italic;
+}
+
+.back-btn {
+    background-color: #444;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.back-btn:hover {
+    background-color: #000;
+}
+
+/* 頁尾 */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0a192f;
+    border-top: 1px solid #00ffcc;
+    font-size: 11px;
+    color: #666;
+}
