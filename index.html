@@ -3,222 +3,470 @@
 <head>
     <meta charset="UTF-8">
     <title>Welcome to Aegis Global Biotech Official Website</title>
-    <!-- 引入外部樣式表 -->
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ==========================================================================
+           1. CORE & GATEKEEPER STYLES (Bright, Professional, Corporate White)
+           ========================================================================== */
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Segoe UI", Arial, sans-serif; }
+        body { background-color: #f8f9fa; color: #333; overflow-x: hidden; }
+
+        /* Gatekeeper Welcome Page */
+        #gatekeeper-page {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            /* 1. Added Background Image Properties here to cover the whole gatekeeper session */
+            background-image: url("image/background5.jpg"); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        
+        .gk-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            /* 2. Added a semi-transparent glass backing to keep text readable against background shapes */
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .gk-logo h1 { color: #0f3d6d; font-size: 24px; letter-spacing: 1px; }
+        .gk-nav a {
+            text-decoration: none; color: #555; margin-left: 25px; font-weight: 600;
+            transition: color 0.3s; cursor: pointer;
+        }
+        .gk-nav a:hover, .gk-nav a.vip-btn { color: #007bff; }
+        .gk-nav a.vip-btn {
+            background: #007bff; color: #fff !important; padding: 8px 16px; border-radius: 4px;
+        }
+        .gk-nav a.vip-btn:hover { background: #0056b3; }
+
+        .gk-hero {
+            flex: 1; display: flex; align-items: center; justify-content: center;
+            text-align: center; padding: 60px 20px;
+        }
+        /* 3. Added a clean, white glass box around the hero text for premium readability */
+        .gk-hero-content { 
+            max-width: 800px; 
+            background: rgba(255, 255, 255, 0.85);
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(15, 61, 109, 0.1);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .gk-hero h2 { font-size: 48px; color: #0f3d6d; margin-bottom: 20px; }
+        .gk-hero p { font-size: 18px; color: #333; line-height: 1.6; margin-bottom: 0px; }
+        
+        .gk-features {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
+            padding: 0 10% 60px 10%;
+        }
+        .gk-card {
+            background: rgba(255, 255, 255, 0.92); padding: 30px; border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .gk-card:hover {
+            transform: translateY(-5px);
+        }
+        .gk-card h3 { color: #0f3d6d; margin-bottom: 12px; }
+        .gk-card p { color: #555; font-size: 14px; line-height: 1.5; }
+        .gk-footer {
+            background: #0f3d6d; color: #fff; text-align: center; padding: 20px; font-size: 14px;
+        }
+
+        /* ==========================================================================
+           2. PASSWORD OVERLAY LAYER
+           ========================================================================== */
+        #password-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.95); display: none;
+            align-items: center; justify-content: center; z-index: 9999;
+            color: #ff3333; font-family: monospace;
+        }
+        .crypto-box {
+            background: #111; border: 2px solid #ff3333; padding: 40px;
+            border-radius: 4px; text-align: center; box-shadow: 0 0 30px rgba(255,51,51,0.2);
+            max-width: 400px; width: 90%;
+        }
+        .crypto-box h3 { font-size: 20px; margin-bottom: 15px; letter-spacing: 2px; }
+        .crypto-box p { color: #aaa; font-size: 13px; margin-bottom: 20px; }
+        .crypto-box input {
+            background: #000; border: 1px solid #ff3333; color: #00ffcc;
+            padding: 10px; font-size: 24px; text-align: center; width: 80%;
+            letter-spacing: 5px; margin-bottom: 15px; outline: none;
+        }
+        .crypto-box button {
+            background: #ff3333; color: #000; border: none; font-weight: bold;
+            padding: 10px 20px; cursor: pointer; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .crypto-box button:hover { background: #cc0000; color: #fff; }
+        .error-msg { color: #ff3333; font-size: 12px; margin-top: 10px; display: none; }
+
+        /* ==========================================================================
+           3. THE DARK SITE STYLES (Your Original Hidden System)
+           ========================================================================== */
+        #dark-website-root { display: none; background-color: #050b14; color: #d1e2f3; }
+        #container { max-width: 1000px; margin: 0 auto; padding: 15px; background: #081220; border: 1px solid #1a3a60; }
+        header { border-bottom: 3px double #00ffcc; padding-bottom: 10px; margin-bottom: 10px; }
+        .logo-area h1 { color: #00ffcc; font-size: 28px; letter-spacing: 2px; text-shadow: 0 0 8px rgba(0,255,204,0.5); }
+        .logo-area p { color: #ff9900; font-size: 12px; margin-top: 5px; }
+        nav ul { list-style: none; display: flex; background: #102540; padding: 8px; margin-top: 10px; }
+        nav ul li { margin-right: 20px; }
+        nav ul li a { color: #88eeff; text-decoration: none; font-size: 14px; font-weight: bold; }
+        nav ul li a:hover { color: #fff; text-decoration: underline; }
+        .marquee-speed { background: #000; border: 1px solid #ff3333; margin-bottom: 15px; padding: 3px; }
+        marquee { color: #ff3333; font-weight: bold; font-size: 14px; }
+        .main-wrapper { display: grid; grid-template-columns: 280px 1fr; gap: 15px; }
+        aside { background: #0b1d33; padding: 15px; border: 1px solid #1a3a60; }
+        .box h3 { color: #ff9900; border-bottom: 1px dashed #ff9900; padding-bottom: 5px; margin-bottom: 10px; font-size: 16px; }
+        .contact-text { font-size: 13px; line-height: 1.6; color: #a0c0e0; }
+        .contact-text a { color: #00ffcc; }
+        main { background: #0b1d33; padding: 15px; border: 1px solid #1a3a60; }
+        .section-title-bar { background: linear-gradient(90deg, #102540, transparent); padding: 6px; border-left: 5px solid #00ffcc; margin-bottom: 15px; }
+        .section-title-bar h2 { font-size: 18px; color: #00ffcc; }
+        .news-card { background: #081220; border: 1px solid #1a3a60; padding: 15px; margin-bottom: 15px; }
+        .blink { animation: blinker 1s linear infinite; color: #ff3333; font-weight: bold; font-size: 14px; display: inline-block; margin-bottom: 5px; }
+        @keyframes blinker { 50% { opacity: 0; } }
+        .news-title { font-size: 16px; color: #ffff00; font-weight: bold; cursor: pointer; text-decoration: underline; margin-bottom: 8px; }
+        .news-title:hover { color: #fff; }
+        .news-meta { font-size: 11px; color: #888; margin-bottom: 10px; }
+        .news-p { font-size: 13px; line-height: 1.6; margin-bottom: 12px; text-align: justify; }
+        .read-more { color: #00ffcc; cursor: pointer; font-size: 12px; font-weight: bold; }
+        .read-more:hover { text-decoration: underline; }
+        .old-news { border-top: 1px solid #1a3a60; padding-top: 10px; font-size: 12px; color: #88a8cc; line-height: 1.8; }
+        .sub-page { display: none; }
+        .sub-page.active { display: block; }
+        .page-padding { padding: 10px; }
+        .product-large-card { background: #0b1d33; border: 1px solid #1a3a60; margin-bottom: 20px; }
+        .prod-header { background: #102540; padding: 10px; color: #ffff00; font-weight: bold; font-size: 15px; border-bottom: 1px solid #1a3a60; }
+        .prod-body { padding: 15px; font-size: 14px; line-height: 1.6; }
+        .prod-body p { margin-bottom: 8px; }
+        .retro-btn, .back-btn { background: #102540; color: #00ffcc; border: 1px solid #00ffcc; padding: 6px 12px; cursor: pointer; font-size: 13px; margin-top: 15px; }
+        .retro-btn:hover, .back-btn:hover { background: #00ffcc; color: #000; }
+        .team-table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 13px; }
+        .team-table th, .team-table td { border: 1px solid #1a3a60; padding: 10px; text-align: left; }
+        .team-table th { background: #102540; color: #ffff00; }
+        .team-table tr:nth-child(even) { background: #081220; }
+        .job-title { color: #00ffcc; font-weight: bold; }
+        .member-name { color: #fff; font-weight: bold; }
+        .journal-header { background: #000; border: 2px solid #1a3a60; padding: 20px; text-align: center; margin-bottom: 20px; }
+        .journal-brand { font-family: "Times New Roman", serif; font-size: 24px; color: #fff; letter-spacing: 3px; border-bottom: 1px solid #333; padding-bottom: 5px; margin-bottom: 10px; }
+        .journal-title { font-size: 18px; color: #ffff00; font-weight: bold; line-height: 1.4; }
+        .journal-meta { font-size: 12px; color: #888; margin-top: 8px; line-height: 1.5; }
+        .journal-content { background: #fff; color: #111; padding: 30px; font-family: "Times New Roman", serif; line-height: 1.6; border-radius: 2px; }
+        .journal-content h3 { font-size: 16px; border-bottom: 2px solid #111; padding-bottom: 3px; margin: 20px 0 10px 0; color: #000; }
+        .journal-content p { font-size: 14px; margin-bottom: 15px; text-align: justify; text-indent: 28px; }
+        .journal-disclaimer { font-style: italic; color: #666; font-size: 11px; margin-top: 30px; text-indent: 0 !important; }
+        footer { margin-top: 20px; border-top: 1px dashed #1a3a60; padding-top: 10px; text-align: center; font-size: 11px; color: #6688aa; line-height: 1.5; }
+    </style>
 </head>
 <body>
 
-<div id="container">
-    <!-- HEADER 區塊 -->
-    <header>
-        <div class="logo-area">
-            <h1>AEGIS GLOBAL BIOTECH</h1>
-            <p>~ Securing Your Youth, Protecting Your Future. 庇護您的青春，守護您的未來 ~</p>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="javascript:void(0);" onclick="showPage('home-page')">Home</a></li>
-                <li><a href="javascript:void(0);" onclick="showPage('product-page')">Our Product</a></li>
-                <li><a href="javascript:void(0);" onclick="alertVip()">VIP Service</a></li>
-                <li><a href="javascript:void(0);" onclick="showPage('team-page')">Team</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- ========================================== -->
+    <!-- PHASE 1: BRIGHT GATEKEEPER FRONT PAGE     -->
+    <!-- ========================================== -->
+    <div id="gatekeeper-page">
+        <header class="gk-header">
+            <div class="gk-logo">
+                <h1>AEGIS GLOBAL BIOTECH</h1>
+            </div>
+            <nav class="gk-nav">
+                <a onclick="scrollToSection('about')">About Us</a>
+                <a onclick="scrollToSection('research')">Research</a>
+                <a class="vip-btn" onclick="openVipGate()">VIP Service Portal</a>
+            </nav>
+        </header>
+    
+        <section class="gk-hero">
+            <div class="gk-hero-content">
+                <h2>Securing Your Youth,<br>Protecting Your Future.</h2>
+                <p>Aegis Global Biotech is a pioneer in cellular therapeutics and longevity science. We are dedicated to translating breakthrough biomedical discoveries into premium care management systems for our global stakeholders.</p>
+            </div>
+        </section>
 
-    <!-- 經典紅字跑馬燈 -->
-    <div class="marquee-speed">
-        <marquee scrollamount="4">【最新公告】Aegis Global Biotech 榮獲2006年全球生技前瞻突破獎提名！GDF11臨床前導實驗取得歷史性進展！本公司未授權任何坊間機構進行私下抽血... </marquee>
+        <section class="gk-features" id="about">
+            <div class="gk-card">
+                <h3>Advanced Therapeutics</h3>
+                <p>Developing precision mechanisms to combat age-associated physiological decline through novel protein isolation paradigms.</p>
+            </div>
+            <div class="gk-card" id="research">
+                <h3>Global Infrastructure</h3>
+                <p>Our localized research hubs maintain state-of-the-art compliance and secure storage solutions for institutional pipelines.</p>
+            </div>
+            <div class="gk-card">
+                <h3>Elite Asset Care</h3>
+                <p>Tailored physical and biological management portfolios designed exclusively for high-net-worth institutional partners.</p>
+            </div>
+        </section>
+
+        <footer class="gk-footer">
+            <p>&copy; 2026 Aegis Global Biotech Inc. Global Research Alliance. All Rights Reserved.</p>
+        </footer>
     </div>
 
-    <!-- ========================================== -->
-    <!-- 1. 首頁 (Home Page)                        -->
-    <!-- ========================================== -->
-    <div id="home-page" class="sub-page active">
-        <div class="main-wrapper">
-            <!-- 左側欄：僅保留聯絡我們 -->
-            <aside>
-                <div class="box" id="contact">
-                    <h3>Contact Us / 聯絡我們</h3>
-                    <p class="contact-text">
-                        如有科學合作、血清訂購或大宗採購需求，請洽：<br><br>
-                        <strong>TEL:</strong> +1 (555) 019-2006<br>
-                        <strong>E-MAIL:</strong> <a href="mailto:info@aegis-global-biotech.com">info@aegis-global-biotech.com</a><br>
-                        <strong>ADDRESS:</strong> Block C, Bio-Tech District, Sector 7
-                    </p>
-                </div>
-            </aside>
 
-            <!-- 右側欄：新聞中心 -->
-            <main>
-                <div class="section-title-bar">
-                    <h2>Corporate News / 企業要聞</h2>
-                </div>
+    <!-- ========================================== -->
+    <!-- SECURITY OVERLAY LAYER                     -->
+    <!-- ========================================== -->
+    <div id="password-overlay">
+        <div class="crypto-box">
+            <h3>SECURE NODE ACCESS</h3>
+            <p>This terminal is restricted to validated Aegis Global VIP entities. Enter your 4-digit Authorization Key to decrypt:</p>
+            <input type="password" id="gate-pass" maxlength="4" placeholder="••••" onkeydown="if(event.key === 'Enter') verifyKey()">
+            <br>
+            <button onclick="verifyKey()">Decrypt System</button>
+            <button onclick="closeVipGate()" style="background:#222; color:#aaa; margin-left:10px;">Abort</button>
+            <div id="error-message" class="error-msg">INVALID AUTHORIZATION KEY. ACCESS DENIED.</div>
+        </div>
+    </div>
 
-                <div class="news-card">
-                    <span class="blink">[HOT NEWS!]</span>
-                    <div class="news-title" onclick="showPage('journal-page')">
-                        振奮人心的發現！血液中GDF11蛋白可讓人無痛回春
+
+    <!-- ========================================== -->
+    <!-- PHASE 2: UNLOCKED DARK SITE SYSTEMS        -->
+    <!-- ========================================== -->
+    <div id="dark-website-root">
+        <div id="container">
+            <!-- HEADER 區塊 -->
+            <header>
+                <div class="logo-area">
+                    <h1>AEGIS GLOBAL BIOTECH</h1>
+                    <h5 style="color:#f8f9fa;">~ Securing Your Youth, Protecting Your Future. 庇護您的青春，守護您的未來 ~</h5>
+                    <br>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="javascript:void(0);" onclick="showPage('home-page')">Home</a></li>
+                        <li><a href="javascript:void(0);" onclick="showPage('product-page')">Our Product</a></li>
+                        <li><a href="javascript:void(0);" onclick="showPage('team-page')">Team</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- 經典紅字跑馬燈 -->
+            <div class="marquee-speed">
+                <marquee scrollamount="4">【最新公告】Aegis Global Biotech 榮獲2006年全球生技前瞻突破獎提名！GDF11臨床前導實驗取得歷史性進展！本公司未授權任何坊間機構進行私下抽血... </marquee>
+            </div>
+
+            <!-- 1. 首頁 (Home Page) -->
+            <div id="home-page" class="sub-page active">
+                <div class="main-wrapper">
+                    <aside>
+                        <div class="box" id="contact">
+                            <h3 style="color:#f8f9fa;">Contact Us / 聯絡我們</h3>
+                            <p class="contact-text">
+                                如有科學合作、血清訂購或大宗採購需求，請洽：<br><br>
+                                <strong>TEL:</strong> +1 (555) 019-2006<br>
+                                <strong>E-MAIL:</strong> <a href="mailto:info@aegis-global-biotech.com">info@aegis-global-biotech.com</a><br>
+                                <strong>ADDRESS:</strong> Block C, Bio-Tech District, Sector 7
+                            </p>
+                        </div>
+                    </aside>
+
+                    <main>
+                        <div class="section-title-bar">
+                            <h2>Corporate News / 企業要聞</h2>
+                        </div>
+
+                        <div class="news-card">
+                            <span class="blink">[HOT NEWS!]</span>
+                            <div class="news-title" onclick="showPage('journal-page')">
+                                振奮人心的發現！血液中GDF11蛋白可讓人無痛回春
+                            </div>
+                            <p class="news-meta">發佈日期：2006年6月9日 | 點擊標題查看發表於 《Medical Frontier Journal》 的完整文獻</p>
+                            
+                            <p class="news-p">
+                                曾經有個老化老鼠的科學實驗，讓年紀較大的老鼠和年輕老鼠，共用一套血液循環系統，實驗結果顯示，年邁老鼠的肌肉復原再生能力改善了、認知能力進步了、神經和血管開始新生，甚至還能逆轉心肌肥厚，整體器官組織似乎都年輕化，宛如「回春」。
+                            </p>
+                            <p class="news-p">
+                                怎麼會有這麼振奮人心的結果？科學家發現，年邁老鼠和年輕老鼠的血液中，有一個關鍵物質，在年邁老鼠的身上濃度極低、在年輕老鼠的身上濃度高許多。而換血回春之驚奇之處就在於，原本血液中僅有少量該物質的年邁老鼠，在和年輕老鼠的血液接通後，這個物質的含量，竟然回復到青春時期。
+                            </p>
+                            <p class="news-p">
+                                這個關鍵物質，便是「生長分化因子11 （Growth differentiation factor 11, GDF11）」... 
+                                <span class="read-more" onclick="showPage('journal-page')">[繼續閱讀完整論文翻譯]</span>
+                            </p>
+                        </div>
+
+                        <div class="old-news">
+                            <p>• [2006/04/12] Aegis Global 與知名銀行體系達成戰略融資協議，由 Garrison Thorne 監督資金注入。</p>
+                            <p>• [2006/02/28] 技術部門 Derek Dalton 與 Roy Pritchett 完成第三代血液共生不鏽鋼艙體升級。</p>
+                        </div>
+                    </main>
+                </div>
+            </div>
+
+            <!-- 2. 產品獨立子頁面 (Our Product) -->
+            <div id="product-page" class="sub-page">
+                <div class="page-padding">
+                    <div class="section-title-bar">
+                        <h2>Our Products / 核心產品販售</h2>
                     </div>
-                    <p class="news-meta">發佈日期：2006年6月9日 | 點擊標題查看發表於 《Medical Frontier Journal》 的完整文獻</p>
+                    <p style="color: #88eeff; font-size: 14px; margin-bottom: 20px;">首頁 > 產品目錄 (Aegis 全球實驗室專供)</p>
                     
-                    <p class="news-p">
-                        曾經有個老化老鼠的科學實驗，讓年紀較大的老鼠和年輕老鼠，共用一套血液循環系統，實驗結果顯示，年邁老鼠的肌肉復原再生能力改善了、認知能力進步了、神經和血管開始新生，甚至還能逆轉心肌肥厚，整體器官組織似乎都年輕化，宛如「回春」。
-                    </p>
-                    <p class="news-p">
-                        怎麼會有這麼振奮人心的結果？科學家發現，年邁老鼠和年輕老鼠的血液中，有一個關鍵物質，在年邁老鼠的身上濃度極低、在年輕老鼠的身上濃度高許多。而換血回春的驚奇之處就在於，原本血液中僅有少量該物質的年邁老鼠，在和年輕老鼠的血液接通後，這個物質的含量，竟然回復到青春時期。
-                    </p>
-                    <p class="news-p">
-                        這個關鍵物質，便是「生長分化因子11 （Growth differentiation factor 11, GDF11）」... 
-                        <span class="read-more" onclick="showPage('journal-page')">[繼續閱讀完整論文翻譯]</span>
-                    </p>
+                    <div class="product-large-card">
+                        <div class="prod-header">■ Ageless-Serum™ 實驗用高純化血清</div>
+                        <div class="prod-body">
+                            <p><strong>產品編號：</strong> AG-SERUM-2006</p>
+                            <p><strong>規格說明：</strong> 提取自 12 週齡健康小鼠之高效純化血清，採用獨家低溫離心技術，完整保留高濃度活性細胞因子，專為逆齡與細胞再生實驗設計。</p>
+                            <p><strong>供應狀態：</strong> <span style="color: #00ffcc;">[現貨供應中]</span> 需簽署學術用途專用切結書。</p>
+                        </div>
+                    </div>
+
+                    <div class="product-large-card">
+                        <div class="prod-header">■ Model-M19 基因轉殖老鼠模型</div>
+                        <div class="prod-body">
+                            <p><strong>產品編號：</strong> AG-MOUSE-M19</p>
+                            <p><strong>規格說明：</strong> 特殊 GDF11 基因敲除（Knockout）與過度表現（Overexpression）之對照組小鼠模型。專供全球各大醫學中心、前沿抗衰老科研機構進行體外共生手術實驗。</p>
+                            <p><strong>供應狀態：</strong> <span style="color: #ffff00;">[採預約排單制]</span> 請提早四週向您的客戶經理下單。</p>
+                        </div>
+                    </div>
+                    
+                    <button class="retro-btn" onclick="showPage('home-page')">← 返回官方首頁</button>
+                </div>
+            </div>
+
+            <!-- 3. 團隊獨立子頁面 (Team) -->
+            <div id="team-page" class="sub-page">
+                <div class="page-padding">
+                    <div class="section-title-bar">
+                        <h2>Corporate Leadership & Staff / 團隊成員</h2>
+                    </div>
+                    <p style="color: #88eeff; font-size: 14px; margin-bottom: 20px;">首頁 > 關於我們 > 組織架構</p>
+
+                    <table class="team-table">
+                        <thead>
+                            <tr>
+                                <th width="30%">職稱 (Position)</th>
+                                <th width="35%">姓名 (Name)</th>
+                                <th width="35%">背景簡介 (Background)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="job-title">Chief Executive Officer</td>
+                                <td class="member-name">Samson Price</td>
+                                <td>前頂尖前沿醫學首席研究員，GDF11 臨床應用計畫發起人。</td>
+                            </tr>
+                            <tr>
+                                <td class="job-title">Chief Financial Officer</td>
+                                <td class="member-name">Jane Doe</td>
+                                <td><span style="color: #ff9900; font-weight: bold;">The bank clerk</span> / 資深銀行體系財務專家，掌控跨國生技資本融資。</td>
+                            </tr>
+                            <tr>
+                                <td class="job-title">Patient Care Officer</td>
+                                <td class="member-name">John Doe</td>
+                                <td>頂級客戶隱私與健康管理負責人，專職 VIP 專案追蹤。</td>
+                            </tr>
+                            <tr>
+                                <td class="job-title">Mechanics Team</td>
+                                <td class="member-name">Joseph Doe</td>
+                                <td>高壓生物反應器、異時性血液共生不鏽鋼循環系統工程團隊。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <button class="retro-btn" onclick="showPage('home-page')">← 返回官方首頁</button>
+                </div>
+            </div>
+
+            <!-- 4. 醫學文獻頁面 (Medical Frontier Journal) -->
+            <div id="journal-page" class="sub-page">
+                <button class="back-btn" onclick="showPage('home-page')">← 返回 Aegis Global Biotech 首頁</button>
+                
+                <div class="journal-header">
+                    <div class="journal-brand">MEDICAL FRONTIER JOURNAL</div>
+                    <div class="journal-title">外源性全身因子對年老生物體系統之逆齡化與組織再生之影響：聚焦於GDF11之作用機制</div>
+                    <div class="journal-meta">
+                        Volume 42, Issue 6, Pages 1109–1121 | Published online: June 2006<br>
+                        <strong>聯合譯著：</strong> Aegis Global Biotech 科學翻譯組
+                    </div>
                 </div>
 
-                <div class="old-news">
-                    <p>• [2006/04/12] Aegis Global 與知名銀行體系達成戰略融資協議，由 Garrison Thorne 監督資金注入。</p>
-                    <p>• [2006/02/28] 技術部門 Derek Dalton 與 Roy Pritchett 完成第三代血液共生不鏽鋼艙體升級。</p>
+                <div class="journal-content">
+                    <h3>【摘要 / Abstract】</h3>
+                    <p>本研究旨在探討異時性血液共生（Heterochronic Parabiosis）對哺乳動物老化組織之系統性復原效應。透過將年邁老鼠（Aged Murine Models）與年輕老鼠（Young Murine Models）之血管手術性相互接通，建立一共享之血液循環系統。</p>
+                    <p><strong>實驗結果顯示，</strong> 年邁老鼠在共享循環系統後，其骨骼肌之復原再生能力獲得了顯著性的改善、中樞神經系統之認知能力呈現進步之趨勢、大腦海馬迴之神經和血管開始觀察到新生現象，甚至在心血管層面上，還能逆轉既存之向心性心肌肥厚（Cardiac Hypertrophy）。整體而言，年老個體之器官組織似乎都經歷了年輕化，宛如「回春」之效。</p>
+                    
+                    <h3>【關於機制之發現 / Mechanistic Elucidation】</h3>
+                    <p>此種振奮人心且令人驚奇之結果，其背後之分子生物學機制引發了廣泛探討。本刊科學家與合作研究團隊發現，在年邁老鼠與年輕老鼠的循環系統血液中，存在一個扮演決定性角色的關鍵物質。該物質在年邁老鼠的體內循環中濃度極低，然而在年輕老鼠的體內則呈現顯著的高濃度。</p>
+                    <p>而此項換血回春實驗之最令人驚奇之處，即在於原本血液中僅持有微量該物質的年邁老鼠，在與年輕老鼠的血液循環成功接通後，該外源性物質之血漿濃度，竟然回復到了等同於青春時期的基準線。</p>
+
+                    <h3>【研究方法 / Methodology】</h3>
+                    <p>首先將兩週大的年輕老鼠注入10微升的丙泊酚（Propofol）以令其失去移動能力，將針筒插入年輕老鼠之靜脈血管，抽出血液導入至透析循環機，在4度無菌環境操作。同時，將年邁老鼠接入清除互斥抗原的年輕血液，3次10%循環血液後完成。血液轉移完成後，進行手術取得年輕與年長老鼠之血液樣本，進行蛋白質提取（Protein Extraction）。獲取的蛋白樣本應儲存於4度，並於24小時內安排西方墨點法（Western Blot）鑑定GDF11蛋白含量。</p>
+                    
+                    <h3>【結論 / Conclusion】</h3>
+                    <p>經由質譜儀與抗體中和試驗證實，此一關鍵之循環性因子，便被命名為<strong>「生長分化因子11 （Growth differentiation factor 11, 簡稱 GDF11）」</strong>。本研究之數據強烈提示，透過維持或補充外源性 GDF11 之濃度，於臨床上逆轉哺乳動物之退化性神經疾病與肌肉萎縮，具有不可估量之前瞻價值，已準備好於人體實驗階段進行測試。</p>
+
+                    <hr>
+                    <p class="journal-disclaimer">Disclaimer: This page is an archived translation mirror intended for institutional research reference by Aegis Global Biotech stakeholders.</p>
                 </div>
-            </main>
+                
+                <button class="back-btn" style="margin-top:20px;" onclick="showPage('home-page')">← 返回 Aegis Global Biotech 首頁</button>
+            </div>
+
+            <!-- 頁尾 -->
+            <footer>
+                <p>Copyright &copy; 2000-2006 Aegis Global Biotech Inc. All Rights Reserved.</p>
+                <p>Optimized for Internet Explorer 6.0 or Netscape 7.0 with 1024x768 Resolution.</p>
+            </footer>
         </div>
     </div>
 
     <!-- ========================================== -->
-    <!-- 2. 產品獨立子頁面 (Our Product)             -->
+    <!-- JAVASCRIPT CONTROLLER LOGIC                -->
     <!-- ========================================== -->
-    <div id="product-page" class="sub-page">
-        <div class="page-padding">
-            <div class="section-title-bar">
-                <h2>Our Products / 核心產品販售</h2>
-            </div>
-            <p style="color: #88eeff; font-size: 14px; margin-bottom: 20px;">首頁 > 產品目錄 (Aegis 全球實驗室專供)</p>
+    <script>
+        // Gatekeeper Functional Scripts
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openVipGate() {
+            document.getElementById('password-overlay').style.display = 'flex';
+            document.getElementById('gate-pass').focus();
+        }
+
+        function closeVipGate() {
+            document.getElementById('password-overlay').style.display = 'none';
+            document.getElementById('gate-pass').value = '';
+            document.getElementById('error-message').style.display = 'none';
+        }
+
+        function verifyKey() {
+            const userInput = document.getElementById('gate-pass').value;
+            const targetKey = "1246";
+
+            if (userInput === targetKey) {
+                // Fade out Gatekeeper & Login Overlay
+                document.getElementById('gatekeeper-page').style.display = 'none';
+                document.getElementById('password-overlay').style.display = 'none';
+                
+                // Expose and initiate the raw dark corporate system
+                document.body.style.backgroundColor = '#050b14';
+                document.getElementById('dark-website-root').style.display = 'block';
+            } else {
+                document.getElementById('error-message').style.display = 'block';
+                document.getElementById('gate-pass').value = '';
+            }
+        }
+
+        // Deep Legacy Sub-Page Routing Scripts 
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.sub-page');
+            pages.forEach(page => page.classList.remove('active'));
             
-            <div class="product-large-card">
-                <div class="prod-header">■ Ageless-Serum™ 實驗用高純化血清</div>
-                <div class="prod-body">
-                    <p><strong>產品編號：</strong> AG-SERUM-2006</p>
-                    <p><strong>規格說明：</strong> 提取自 12 週齡健康小鼠之高效純化血清，採用獨家低溫離心技術，完整保留高濃度活性細胞因子，專為逆齡與細胞再生實驗設計。</p>
-                    <p><strong>供應狀態：</strong> <span style="color: #00ffcc;">[現貨供應中]</span> 需簽署學術用途專用切結書。</p>
-                </div>
-            </div>
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+                window.scrollTo(0, 0);
+            }
+        }
 
-            <div class="product-large-card">
-                <div class="prod-header">■ Model-M19 基因轉殖老鼠模型</div>
-                <div class="prod-body">
-                    <p><strong>產品編號：</strong> AG-MOUSE-M19</p>
-                    <p><strong>規格說明：</strong> 特殊 GDF11 基因敲除（Knockout）與過度表現（Overexpression）之對照組小鼠模型。專供全球各大醫學中心、前沿抗衰老科研機構進行體外共生手術實驗。</p>
-                    <p><strong>供應狀態：</strong> <span style="color: #ffff00;">[採預約排單制]</span> 請提早四週向您的客戶經理下單。</p>
-                </div>
-            </div>
-            
-            <button class="retro-btn" onclick="showPage('home-page')">← 返回官方首頁</button>
-        </div>
-    </div>
-
-    <!-- ========================================== -->
-    <!-- 3. 團隊獨立子頁面 (Team)                    -->
-    <!-- ========================================== -->
-    <div id="team-page" class="sub-page">
-        <div class="page-padding">
-            <div class="section-title-bar">
-                <h2>Corporate Leadership & Staff / 團隊成員</h2>
-            </div>
-            <p style="color: #88eeff; font-size: 14px; margin-bottom: 20px;">首頁 > 關於我們 > 組織架構</p>
-
-            <table class="team-table">
-                <thead>
-                    <tr>
-                        <th width="30%">職稱 (Position)</th>
-                        <th width="35%">姓名 (Name)</th>
-                        <th width="35%">背景簡介 (Background)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="job-title">Chief Executive Officer</td>
-                        <td class="member-name">Samson Price</td>
-                        <td>前頂尖前沿醫學首席研究員，GDF11 臨床應用計畫發起人。</td>
-                    </tr>
-                    <tr>
-                        <td class="job-title">Chief Financial Officer</td>
-                        <td class="member-name">Jane Doe</td>
-                        <td><span style="color: #ff9900; font-weight: bold;">The bank clerk</span> / 資深銀行體系財務專家，掌控跨國生技資本融資。</td>
-                    </tr>
-                    <tr>
-                        <td class="job-title">Patient Care Officer</td>
-                        <td class="member-name">John Doe</td>
-                        <td>頂級客戶隱私與健康管理負責人，專職 VIP 專案追蹤。</td>
-                    </tr>
-                    <tr>
-                        <td class="job-title">Mechanics Team</td>
-                        <td class="member-name">Joseph Doe</td>
-                        <td>高壓生物反應器、異時性血液共生不鏽鋼循環系統工程團隊。</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <button class="retro-btn" onclick="showPage('home-page')">← 返回官方首頁</button>
-        </div>
-    </div>
-
-    <!-- ========================================== -->
-    <!-- 4. 醫學文獻頁面 (Medical Frontier Journal) -->
-    <!-- ========================================== -->
-    <div id="journal-page" class="sub-page">
-        <button class="back-btn" onclick="showPage('home-page')">← 返回 Aegis Global Biotech 首頁</button>
-        
-        <div class="journal-header">
-            <div class="journal-brand">MEDICAL FRONTIER JOURNAL</div>
-            <div class="journal-title">外源性全身因子對年老生物體系統之逆齡化與組織再生之影響：聚焦於GDF11之作用機制</div>
-            <div class="journal-meta">
-                Volume 42, Issue 6, Pages 1109–1121 | Published online: June 2006<br>
-                <strong>聯合譯著：</strong> Aegis Global Biotech 科學翻譯組
-            </div>
-        </div>
-
-        <div class="journal-content">
-            <h3>【摘要 / Abstract】</h3>
-            <p>
-                本研究旨在探討異時性血液共生（Heterochronic Parabiosis）對哺乳動物老化組織之系統性復原效應。透過將年邁老鼠（Aged Murine Models）與年輕老鼠（Young Murine Models）之血管手術性相互接通，建立一共享之血液循環系統。
-            </p>
-            <p>
-                <strong>實驗結果顯示，</strong> 年邁老鼠在共享循環系統後，其骨骼肌之復原再生能力獲得了顯著性的改善、中樞神經系統之認知能力呈現進步之趨勢、大腦海馬迴之神經和血管開始觀察到新生現象，甚至在心血管層面上，還能逆轉既存之向心性心肌肥厚（Cardiac Hypertrophy）。整體而言，年老個體之器官組織似乎都經歷了年輕化，宛如「回春」之效。
-            </p>
-            
-            <h3>【關於機制之發現 / Mechanistic Elucidation】</h3>
-            <p>
-                此種振奮人心且令人驚奇之結果，其背後之分子生物學機制引發了廣泛探討。本刊科學家與合作研究團隊發現，在年邁老鼠與年輕老鼠的循環系統血液中，存在一個扮演決定性角色的關鍵物質。該物質在年邁老鼠的體內循環中濃度極低，然而在年輕老鼠的體內則呈現顯著的高濃度。
-            </p>
-            <p>
-                而此項換血回春實驗之最令人驚奇之處，即在於原本血液中僅持有微量該物質的年邁老鼠，在與年輕老鼠的血液循環成功接通後，該外源性物質之血漿濃度，竟然回復到了等同於青春時期的基準線。
-            </p>
-
-            <h3>【研究方法 / Methodology】</h3>
-            <p>
-                首先將兩週大的年輕老鼠注入10微升的丙泊酚（Propofol）以令其失去移動能力，將針筒插入年輕老鼠之靜脈血管，抽出血液導入至透析循環機，在4度無菌環境操作。同時，將年邁老鼠接入清除互斥抗原的年輕血液，3次10%循環血液後完成。血液轉移完成後，進行手術取得年輕與年長老鼠之血液樣本，進行蛋白質提取（Protein Extraction）。獲取的蛋白樣本應儲存於4度，並於24小時內安排西方墨點法（Western Blot）鑑定GDF11蛋白含量。
-
-            </p>
-            
-            <h3>【結論 / Conclusion】</h3>
-            <p>
-                經由質譜儀與抗體中和試驗證實，此一關鍵之循環性因子，便被命名為<strong>「生長分化因子11 （Growth differentiation factor 11, 簡稱 GDF11）」</strong>。本研究之數據強烈提示，透過維持或補充外源性 GDF11 之濃度，於臨床上逆轉哺乳動物之退化性神經疾病與肌肉萎縮，具有不可估量之前瞻價值，已準備好於人體實驗階段進行測試。
-            </p>
-
-            <hr>
-            <p class="journal-disclaimer">
-                Disclaimer: This page is an archived translation mirror intended for institutional research reference by Aegis Global Biotech stakeholders.
-            </p>
-        </div>
-        
-        <button class="back-btn" style="margin-top:20px;" onclick="showPage('home-page')">← 返回 Aegis Global Biotech 首頁</button>
-    </div>
-
-    <!-- 頁尾 -->
-    <footer>
-        <p>Copyright &copy; 2000-2006 Aegis Global Biotech Inc. All Rights Reserved.</p>
-        <p>Optimized for Internet Explorer 6.0 or Netscape 7.0 with 1024x768 Resolution.</p>
-    </footer>
-</div>
-
-<!-- 引入外部 JavaScript -->
-<script src="script.js"></script>
+    </script>
 </body>
 </html>
