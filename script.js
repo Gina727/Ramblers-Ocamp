@@ -29,5 +29,5 @@ function showPage(pageId) {
  * 點擊 VIP 服務時彈出的經典系統對話方塊
  */
 function alertVip() {
-    alert("【系統安全防護提示】\n\n警告：VIP專屬逆齡（輸入高度活性GDF11）精準服務，目前僅對本公司「A類股權贊助會員」與「金級成員」開放。\n\n普通終端用戶無法瀏覽此頁面。請立即聯繫您的專屬客戶隱私與健康管理負責人 (Patient Care Officer) Clara Brooks。");
+    alert("【系統安全防護提示】\n\n警告：VIP專屬逆齡（輸入高度活性GDF11）精準服務，目前僅對本公司「A類股權贊助會員」與「金級成員」開放。\n\n普通終端用戶無法瀏覽此頁面。請立即聯繫您的專屬客戶隱私與健康管理負責人 (Patient Care Officer) John Doe");
 }
